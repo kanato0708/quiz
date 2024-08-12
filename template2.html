@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!--ブラウザのタブ部分に表示するタイトルを入力-->
+    <title>一問一答クイズ</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!--ページの上部の一番大きな見出し（タイトル）を入力-->
+    <h1>（ここに入力）</h1>
+
+    <h2>１問目</h2>
+
+    <!--１問目の問題文を入力-->
+    <p>（ここに入力）</p>
+
+    <form id="quizForm">
+
+        <!--選択肢欄-->
+        <!--〇が正解の場合、〇の”value”関数をcorrectに指定-->
+        <!--〇が不正解の場合、〇の”value”関数をincorrecrtに指定-->
+        <!--×の場合も同様-->
+        <input type="radio" id="choice1" name="quiz" value="incorrect">
+        <label for="choice1">〇</label>
+
+        <input type="radio" id="choice2" name="quiz" value="correct">
+        <label for="choice2">×</label>
+        
+        <br>
+        <br>
+
+        <button type="button" onclick="checkAnswer()">回答</button>
+    </form>
+
+    <p class="result" id="result"></p>
+
+    <script>
+        function checkAnswer() {
+            const radios = document.getElementsByName('quiz');
+            let selectedValue;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+
+            const resultElement = document.getElementById('result');
+            if (selectedValue === 'correct') {
+                resultElement.textContent = '正解です！';
+                resultElement.style.color = 'green';
+            } else if (selectedValue) {
+                resultElement.textContent = '不正解です。';
+                resultElement.style.color = 'red';
+            } else {
+                resultElement.textContent = '選択肢を選んでください。';
+                resultElement.style.color = 'orange';
+            }
+        }
+    </script>
+
+</body>
+</html>

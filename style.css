@@ -1,0 +1,51 @@
+
+@charset "UTF-8";
+
+html {
+    font-size: 130%;
+}
+
+body {
+    color: #383E45;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.list {
+    
+    margin:auto;
+}
+
+ul {
+    max-width: 500px;
+    display: flex;
+    margin: 20px auto;
+}
+
+li {
+    list-style: none;
+    margin:auto;
+}
+
+h2 {
+    margin: 30px 0 10px 0;
+}
+
+#btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+    margin: 70px auto;
+    padding: 1rem 4rem;
+    font-weight: bold;
+    border: 2px solid #27acd9;
+    color: #27acd9;
+    border-radius: 100vh;
+    transition: 0.5s;
+}
+    #btn:hover {
+        color: #fff;
+        background: #27acd9;
+}
+

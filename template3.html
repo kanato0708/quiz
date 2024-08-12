@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <!--ブラウザのタブ部分に表示するタイトルを入力-->
+    <title>一問一答クイズ　理科１</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--ページの一番を大きなタイトルを入力-->
+    <h1>一問一答クイズ　理科１</h1>
+
+    <form id="quizForm">
+
+        <!--問題欄-->
+        <!--正解に該当する選択肢のvalue関数の値をcorrectに設定する-->
+        <!--不正解に該当する選択肢のvalue関数の値をincorrectに設定する-->
+        <div class="question">
+            <p>1. （ここに問題を入力）</p>
+            <input type="radio" id="q1choice1" name="q1" value="incorrect">
+            <label for="q1choice1">（選択肢１）</label><br>
+            <input type="radio" id="q1choice2" name="q1" value="correct">
+            <label for="q1choice2">（選択肢２）</label><br>
+            <input type="radio" id="q1choice3" name="q1" value="incorrect">
+            <label for="q1choice3">（選択肢３）</label><br>
+        </div>
+
+        <div class="question">
+            <p>2. （ここに問題を入力）</p>
+            <input type="radio" id="q2choice1" name="q2" value="correct">
+            <label for="q2choice1">（選択肢１）</label><br>
+            <input type="radio" id="q2choice2" name="q2" value="incorrect">
+            <label for="q2choice2">（選択肢２）</label><br>
+            <input type="radio" id="q2choice3" name="q2" value="incorrect">
+            <label for="q2choice3">（選択肢３）</label><br>
+        </div>
+
+        <div class="question">
+            <p>3. （ここに問題を入力）</p>
+            <input type="radio" id="q3choice1" name="q3" value="correct">
+            <label for="q3choice1">（選択肢１）</label><br>
+            <input type="radio" id="q3choice2" name="q3" value="incorrect">
+            <label for="q3choice2">（選択肢２）</label><br>
+            <input type="radio" id="q3choice3" name="q3" value="incorrect">
+            <label for="q3choice3">（選択肢３）</label><br>
+        </div>
+
+        <div class="question">
+            <p>4. （ここに問題を入力）</p>
+            <input type="radio" id="q4choice1" name="q4" value="correct">
+            <label for="q4choice1">（選択肢１）</label><br>
+            <input type="radio" id="q4choice2" name="q4" value="incorrect">
+            <label for="q4choice2">（選択肢２）</label><br>
+            <input type="radio" id="q4choice3" name="q4" value="incorrect">
+            <label for="q4choice3">（選択肢３）</label><br>
+        </div>
+
+        <div class="question">
+            <p>5. （ここに問題を入力）</p>
+            <input type="radio" id="q5choice1" name="q5" value="correct">
+            <label for="q5choice1">（選択肢１）</label><br>
+            <input type="radio" id="q5choice2" name="q5" value="incorrect">
+            <label for="q5choice2">（選択肢２）</label><br>
+            <input type="radio" id="q5choice3" name="q5" value="incorrect">
+            <label for="q5choice3">（選択肢３）</label><br>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">結果を確認</button>
+    </form>
+
+    <p class="result" id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            const questions = ['q1', 'q2', 'q3', 'q4', 'q5'];
+            let score = 0;
+
+            questions.forEach((question) => {
+                const radios = document.getElementsByName(question);
+                for (const radio of radios) {
+                    if (radio.checked && radio.value === 'correct') {
+                        score++;
+                    }
+                }
+            });
+
+            const resultElement = document.getElementById('result');
+            if (score === 5) {
+                window.location.href = "correct.html"; 
+            } else {
+                resultElement.textContent = `あなたのスコアは ${score} / 5 です。`;
+                resultElement.style.color = 'blue';
+            }
+        }
+    </script>
+
+</body>
+</html>
